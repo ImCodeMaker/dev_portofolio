@@ -9,7 +9,7 @@ export default function Page() {
       <NavigationBar />
       <main>
         <Home />
-        <AboutMe/>
+        <AboutMe />
         <Projects/>
       </main>
     </div>

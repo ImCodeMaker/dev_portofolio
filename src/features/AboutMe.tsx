@@ -22,10 +22,10 @@ export default function AboutMe() {
             Hello, I am Teudy. I am a student at the{" "}
             <strong>Instituto Tecnológico de las Américas (ITLA)</strong>, one
             of the most versatile institutes in the Dominican Republic, where I
-            reside. I've been passionate about technology since childhood, and
+            reside. I&aposve been passionate about technology since childhood, and
             that passion has led me to develop websites and applications. In my
-            free time, I'm also a pianist—I enjoy composing and improvising
-            music. I love basketball and baseball, and I'm always eager to
+            free time, I&aposm also a pianist—I enjoy composing and improvising
+            music. I love basketball and baseball, and I&aposm always eager to
             explore, learn new things, and challenge myself.
           </p>
         </div>

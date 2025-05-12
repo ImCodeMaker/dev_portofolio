@@ -3,7 +3,7 @@ import ProjectsProps from "@/interfaces/ProjectsProps";
 
 import React from "react";
 import Image from "next/image";
-import Link, { LinkProps } from "next/link";
+import Link from "next/link";
 
 export const ProjectsCard: React.FC<ProjectsProps> = ({ name, image, pageLink }) => {
   return (
