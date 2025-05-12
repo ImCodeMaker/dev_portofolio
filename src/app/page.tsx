@@ -1,5 +1,7 @@
 import NavigationBar from "@/features/NavigationBar";
 import Home from "@/features/Home";
+import AboutMe from "@/features/AboutMe";
+import Projects from "@/features/Projects";
 
 export default function Page() {
   return (
@@ -7,6 +9,8 @@ export default function Page() {
       <NavigationBar />
       <main>
         <Home />
+        <AboutMe/>
+        <Projects/>
       </main>
     </div>
   );
