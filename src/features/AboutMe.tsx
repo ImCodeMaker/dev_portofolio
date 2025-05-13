@@ -24,8 +24,8 @@ export default function AboutMe() {
             of the most versatile institutes in the Dominican Republic, where I
             reside. I&aposve been passionate about technology since childhood, and
             that passion has led me to develop websites and applications. In my
-            free time, I&aposm also a pianist—I enjoy composing and improvising
-            music. I love basketball and baseball, and I&aposm always eager to
+            free time, I&apos;m also a pianist—I enjoy composing and improvising
+            music. I love basketball and baseball, and I&apos;m always eager to
             explore, learn new things, and challenge myself.
           </p>
         </div>

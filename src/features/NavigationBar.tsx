@@ -7,8 +7,8 @@ export default function NavigationBar() {
     { name: "Home", navigateTo: "#home" },
     { name: "About Me", navigateTo: "#about" },
     { name: "Projects", navigateTo: "#projects" },
-    { name: "Skills", navigateTo: "#home" },
-    { name: "Contact", navigateTo: "#home" },
+    { name: "Skills", navigateTo: "#skills" },
+    { name: "Contact", navigateTo: "#contact" },
   ];
   const [isOpen, setIsOpen] = useState<boolean>(false);
 

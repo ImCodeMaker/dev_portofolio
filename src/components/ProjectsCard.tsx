@@ -8,13 +8,13 @@ import Link from "next/link";
 export const ProjectsCard: React.FC<ProjectsProps> = ({ name, image, pageLink }) => {
   return (
     <div className="flex items-center justify-center">
-      <div className="relative w-96 h-72 rounded-lg overflow-hidden hover:cursor-pointer">
+      <div className="relative w-96 h-72 rounded-lg overflow-hidden hover:cursor-pointer ">
         {pageLink ? (
           <Link href={pageLink} target="_blank" rel="noopener">
             <Image
               src={image}
               alt={name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain rounded-sm "
               width={300}
               height={200}
             />
@@ -23,7 +23,7 @@ export const ProjectsCard: React.FC<ProjectsProps> = ({ name, image, pageLink })
           <Image
             src={image}
             alt={name}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain rounded-lg"
             width={300}
             height={200}
           />
