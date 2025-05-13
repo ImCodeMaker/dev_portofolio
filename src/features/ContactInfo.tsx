@@ -4,7 +4,7 @@ export default function ContactInfo() {
   return (
     <section className="w-full min-h-screen flex flex-col justify-center items-center px-4 py-8 bg-white  text-black dark:text-black">
       <div className="w-full max-w-2xl rounded-2xl shadow-xl p-8 text-center">
-        <h2 className="text-3xl font-extrabold mb-10">Let's Get in Touch</h2>
+        <h2 className="text-3xl font-extrabold mb-10">Let&apos;s Get in Touch</h2>
 
         <div className="space-y-6">
           <ContactCard
