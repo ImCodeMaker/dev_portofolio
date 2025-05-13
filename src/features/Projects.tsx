@@ -12,7 +12,7 @@ export default function Projects() {
   ];
   return (
     <>
-      <section id="projects" className="w-screen h-screen px-4 py-6 flex items-center mt-14 justify-center flex-col">
+      <section id="projects" className="w-screen min-h-screen px-4 py-6 flex items-center mt-14 justify-center flex-col">
         <div className="flex flex-col items-center justify-center">
           <h2 className="text-2xl font-bold">My Projects</h2>
           <p>A selection of my most notable projects.</p>

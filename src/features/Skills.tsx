@@ -47,7 +47,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="w-full px-4 py-6 mt-14 max-w-6xl mx-auto">
+    <section id="skills" className="w-full min-h-screen  px-4 py-6 mt-14 max-w-6xl mx-auto">
       {/* Header */}
       <div className="flex flex-col items-center justify-center mb-10 text-center">
         <h2 className="text-2xl font-bold">Skills</h2>
