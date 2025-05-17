@@ -10,7 +10,7 @@ import CSSLogo from "@/assets/CSSLogo.png"
 import FigmaLogo from "@/assets/FigmaLogo.png"
 import TailwindLogo from "@/assets/TailwindLogo.png"
 import CSharpLogo from "@/assets/CSharpLogo.png"
-import NestJSLogo from "@/assets/NestJSLogo.png"
+import ExpressJS from "@/assets/ExpressLogo.png"
 import NextJS from "@/assets/NextJS.png"
 import PostgreSQL from "@/assets/PostgreSQL.png"
 import SupabaseLogo from "@/assets/SupabaseLogo.png"
@@ -33,7 +33,7 @@ export default function Skills() {
 
   const backendSkills: SkillCardProps[] = [
     { text: "ASP.NET", image: CSharpLogo },
-    { text: "Node / Nest JS", image: NestJSLogo },
+    { text: "Express JS", image: ExpressJS },
     { text: "Postgre SQL", image: PostgreSQL },
     { text: "Supbase", image: SupabaseLogo },
   ];

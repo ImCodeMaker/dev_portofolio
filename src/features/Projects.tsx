@@ -1,14 +1,15 @@
 import ProjectsProps from "@/interfaces/ProjectsProps";
 import Image from "@/assets/EncarnacionStudiosLandingPage.jpeg";
+import NotFond from "@/assets/Image-not-found.png"
 import { ProjectsCard } from "@/components/ProjectsCard";
 
 export default function Projects() {
   const ProjectsList: ProjectsProps[] = [
     { name: "Encarnacion Studios Landing Page", image: Image, pageLink: "https://encarnacionstudios.netlify.app/"  },
-    { name: "Encarnacion Studios Landing Page", image: Image },
-    { name: "Encarnacion Studios Landing Page", image: Image },
-    { name: "Encarnacion Studios Landing Page", image: Image },
-    { name: "Encarnacion Studios Landing Page", image: Image },
+    { name: "Coming Soon!", image: NotFond },
+    { name: "Coming Soon!", image: NotFond },
+    { name: "Coming Soon!", image: NotFond },
+    { name: "Coming Soon!", image: NotFond },
   ];
   return (
     <>

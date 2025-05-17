@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PeopleImage from "@/assets/image_template.jpeg";
+import PeopleImage from "@/assets/JoshuaPic.jpg"
 
 export default function AboutMe() {
   return (
