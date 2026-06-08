@@ -1,0 +1,24 @@
+---
+import BaseLayout from "@app/layouts/BaseLayout.astro";
+import SiteNav from "@app/components/SiteNav.astro";
+import ContactSection from "@contact/components/ContactSection.astro";
+import ExperienceSection from "@experience/components/ExperienceSection.astro";
+import BrandHero from "@brand/components/BrandHero.astro";
+import BrandStatement from "@brand/components/BrandStatement.astro";
+import CaseStudies from "@work/components/CaseStudies.astro";
+import FeaturedWork from "@work/components/FeaturedWork.astro";
+
+const locale = "en";
+---
+
+<BaseLayout locale={locale}>
+  <SiteNav locale={locale} />
+  <main class="min-h-screen">
+    <BrandHero locale={locale} />
+    <FeaturedWork locale={locale} />
+    <CaseStudies locale={locale} />
+    <ExperienceSection locale={locale} />
+    <BrandStatement locale={locale} />
+    <ContactSection locale={locale} />
+  </main>
+</BaseLayout>

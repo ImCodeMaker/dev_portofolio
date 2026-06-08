@@ -1,0 +1,61 @@
+---
+import StatusPill from "@shared/ui/StatusPill.astro";
+import { getT, type Locale } from "@app/i18n/translations";
+import type { ProjectData } from "@work/data/projects";
+
+type Props = {
+  project: ProjectData;
+  locale?: Locale;
+};
+
+const { project, locale = "en" } = Astro.props;
+const t = getT(locale);
+---
+
+<article class="grid gap-0 overflow-hidden rounded-xl bg-charcoal shadow-product shadow-inset-line lg:grid-cols-[0.82fr_1.18fr]" data-animate="panel">
+  <div class="border-b border-graphite p-6 lg:border-b-0 lg:border-r lg:p-7">
+    <div class="flex items-start justify-between gap-4">
+      <div>
+        <p class="mono text-xs text-slate">{project.id}</p>
+        <p class="mt-1 text-xs text-fog">{project.type}</p>
+      </div>
+      <StatusPill status={project.status} />
+    </div>
+    <h3 class="mt-12 text-3xl font-normal leading-[1.16] tracking-normal text-snow">{project.title}</h3>
+    <p class="mt-4 text-sm leading-6 text-fog">{project.description}</p>
+    <div class="mt-6 flex flex-wrap gap-2">
+      {project.techStack.map((tech) => (
+        <span class="rounded-[2px] border border-graphite px-2 py-1 text-xs text-mist">{tech}</span>
+      ))}
+    </div>
+    <div class="mt-8 flex flex-wrap gap-3">
+      {project.links.length > 0 ? (
+        project.links.map((link) => (
+          <a class="text-sm font-[510] text-snow no-underline transition hover:text-accent" href={link.href} target="_blank" rel="noreferrer">
+            {link.label}
+          </a>
+        ))
+      ) : (
+        <span class="text-sm text-slate">{t("projects.private")}</span>
+      )}
+    </div>
+  </div>
+
+  <div class="grid gap-4 bg-onyx p-6 lg:p-7">
+    <div>
+      <p class="text-xs font-[510] uppercase text-fog">{t("projects.keyStats")}</p>
+      <ul class="mt-3 grid gap-2">
+        {project.stats.map((stat) => (
+          <li class="flex gap-3 text-sm leading-6 text-mist">
+            <span class="mt-2 size-1 rounded-full bg-accent"></span>
+            <span>{stat}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="rounded-lg border border-graphite bg-obsidian p-4">
+      <p class="text-xs font-[510] uppercase text-fog">{t("projects.architecture")}</p>
+      <p class="mt-3 text-sm leading-6 text-mist">{project.architecture}</p>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,41 @@
+---
+import { siteConfig } from "@app/config/site";
+import { getT, type Locale } from "@app/i18n/translations";
+import AccessibilityDock from "./AccessibilityDock";
+import DynamicIslandNav from "./DynamicIslandNav";
+
+type Props = {
+  locale?: Locale;
+};
+
+const { locale = "en" } = Astro.props;
+const t = getT(locale);
+
+const navItems = [
+  { label: t("nav.projects"), href: "#projects" },
+  { label: t("nav.caseStudies"), href: "#case-studies" },
+  { label: t("nav.about"), href: "#about" },
+  { label: t("nav.contact"), href: "#contact" },
+];
+---
+
+<DynamicIslandNav
+  client:load
+  currentLocale={locale}
+  languageLabel={t("nav.language")}
+  resumeLabel={t("nav.resume")}
+  inquiryLabel={t("nav.inquiry")}
+  linkedInUrl={siteConfig.socials[1].href}
+  resumeUrl={siteConfig.socials[2].href}
+  navItems={navItems}
+/>
+
+<AccessibilityDock
+  client:load
+  title={t("a11y.title")}
+  openLabel={t("a11y.open")}
+  closeLabel={t("a11y.close")}
+  largeTextLabel={t("a11y.largeText")}
+  highContrastLabel={t("a11y.highContrast")}
+  reduceMotionLabel={t("a11y.reduceMotion")}
+/>

@@ -1,0 +1,43 @@
+---
+import { siteConfig } from "@app/config/site";
+import { getT, type Locale } from "@app/i18n/translations";
+
+type Props = {
+  locale?: Locale;
+};
+
+const { locale = "en" } = Astro.props;
+const t = getT(locale);
+const socialLinks = siteConfig.socials.map((social) => ({
+  ...social,
+  label: social.label === "Resume" ? t("contact.resume") : social.label,
+}));
+---
+
+<section id="about" class="px-4 py-20 sm:px-6 sm:py-28" aria-labelledby="about-title">
+  <div class="mx-auto grid w-full max-w-[1200px] gap-12 lg:grid-cols-[0.75fr_1fr]">
+    <div data-animate>
+      <p class="text-xs font-[510] uppercase text-fog">{t("about.eyebrow")}</p>
+      <h2 id="about-title" class="mt-4 max-w-xl text-4xl font-normal leading-[1.13] tracking-normal text-snow sm:text-5xl">
+        {t("about.title")}
+      </h2>
+    </div>
+    <div class="grid gap-4">
+      <article class="rounded-xl bg-charcoal p-6 shadow-product shadow-inset-line" data-animate="panel">
+        <p class="text-[17px] leading-[1.6] text-mist">{t("about.body1")}</p>
+        <p class="mt-5 text-[17px] leading-[1.6] text-fog">{t("about.body2")}</p>
+        <p class="mt-5 text-sm text-slate">{t("about.personal")}</p>
+      </article>
+      <div class="grid gap-3 sm:grid-cols-3">
+        {socialLinks.map((social) => (
+          <a class="rounded-md border border-graphite bg-onyx p-4 text-sm text-mist no-underline transition hover:border-snow hover:text-snow" href={social.href} target="_blank" rel="noreferrer" data-animate>
+            {social.label}
+          </a>
+        ))}
+        <a class="rounded-md border border-graphite bg-onyx p-4 text-sm text-mist no-underline transition hover:border-snow hover:text-snow" href={`mailto:${siteConfig.email}`} data-animate>
+          {t("about.email")}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

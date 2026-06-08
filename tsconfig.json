@@ -1,0 +1,15 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@brand/*": ["src/brand/*"],
+      "@contact/*": ["src/contact/*"],
+      "@experience/*": ["src/experience/*"],
+      "@shared/*": ["src/shared/*"],
+      "@work/*": ["src/work/*"]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+---
+import BaseLayout from "@app/layouts/BaseLayout.astro";
+import SiteNav from "@app/components/SiteNav.astro";
+import ContactSection from "@contact/components/ContactSection.astro";
+import ExperienceSection from "@experience/components/ExperienceSection.astro";
+import BrandHero from "@brand/components/BrandHero.astro";
+import BrandStatement from "@brand/components/BrandStatement.astro";
+import CaseStudies from "@work/components/CaseStudies.astro";
+import FeaturedWork from "@work/components/FeaturedWork.astro";
+import { locales } from "@app/i18n/locales";
+import { normalizeLocale } from "@app/i18n/translations";
+
+export function getStaticPaths() {
+  return locales
+    .filter((locale) => locale !== "en")
+    .map((locale) => ({ params: { locale } }));
+}
+
+const locale = normalizeLocale(Astro.params.locale);
+---
+
+<BaseLayout locale={locale}>
+  <SiteNav locale={locale} />
+  <main class="min-h-screen">
+    <BrandHero locale={locale} />
+    <FeaturedWork locale={locale} />
+    <CaseStudies locale={locale} />
+    <ExperienceSection locale={locale} />
+    <BrandStatement locale={locale} />
+    <ContactSection locale={locale} />
+  </main>
+</BaseLayout>

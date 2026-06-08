@@ -1,0 +1,30 @@
+export const siteConfig = {
+  name: "Teudy Encarnacion",
+  legalName: "Teudy Joshua Encarnacion",
+  handle: "teudy.vercel.app",
+  role: "Full Stack Engineer",
+  title: "Teudy Encarnación — Full Stack Engineer",
+  description:
+    "Full Stack Engineer specialized in backend systems, APIs, and distributed architecture. Available for remote contracts.",
+  url: "https://teudy.vercel.app",
+  image: "/og-image.svg",
+  email: "teudijoshua@gmail.com",
+  location: "Santo Domingo, Dominican Republic",
+  keywords: [
+    "Teudy Encarnacion",
+    "Teudy Joshua Encarnacion",
+    "Full Stack Engineer",
+    "Backend Engineer",
+    "API Developer",
+    "Microservices Developer",
+    "Fintech Developer",
+    "SaaS Developer",
+    "Remote Software Engineer",
+    "Dominican Republic Software Engineer",
+  ],
+  socials: [
+    { label: "GitHub", href: "https://github.com/ImCodeMaker" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/joshua-encarnacion/" },
+    { label: "Resume", href: "/resume.pdf" },
+  ],
+} as const;

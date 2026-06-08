@@ -1,0 +1,33 @@
+---
+import { getLocalizedCapabilities } from "@experience/data/capabilities";
+import { getT, type Locale } from "@app/i18n/translations";
+
+type Props = {
+  locale?: Locale;
+};
+
+const { locale = "en" } = Astro.props;
+const t = getT(locale);
+const capabilities = getLocalizedCapabilities(locale);
+---
+
+<section id="capabilities" class="px-4 py-20 sm:px-6 sm:py-28" aria-labelledby="capabilities-title">
+  <div class="mx-auto w-full max-w-[1200px]">
+    <div class="max-w-2xl" data-animate>
+      <p class="text-xs font-[510] uppercase text-fog">{t("capabilities.eyebrow")}</p>
+      <h2 id="capabilities-title" class="mt-4 text-4xl font-normal leading-[1.13] tracking-normal text-snow sm:text-5xl">
+        {t("capabilities.title")}
+      </h2>
+    </div>
+
+    <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {capabilities.map((capability) => (
+        <article class="rounded-xl bg-charcoal p-6 shadow-product shadow-inset-line" data-animate="panel">
+          <p class="mono text-xs text-slate">{capability.id}</p>
+          <h3 class="mt-6 text-xl font-normal leading-[1.25] tracking-normal text-snow">{capability.name}</h3>
+          <p class="mt-4 text-sm leading-6 text-fog">{capability.detail}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,129 @@
+---
+import { siteConfig } from "@app/config/site";
+import { getT } from "@app/i18n/translations";
+import { localePaths, locales, type Locale } from "@app/i18n/locales";
+import "@app/styles/global.css";
+
+type Props = {
+  title?: string;
+  description?: string;
+  locale?: Locale;
+};
+
+const {
+  title = siteConfig.title,
+  description,
+  locale = "en",
+} = Astro.props;
+
+const t = getT(locale);
+const pageDescription = description ?? t("meta.description");
+const canonical = `${siteConfig.url}${localePaths[locale] === "/" ? "" : localePaths[locale]}`;
+const imageUrl = new URL(siteConfig.image, siteConfig.url).toString();
+const ogLocales: Record<Locale, string> = {
+  en: "en_US",
+  de: "de_DE",
+  it: "it_IT",
+  pt: "pt_PT",
+  es: "es_ES",
+  no: "nb_NO",
+  da: "da_DK",
+  sv: "sv_SE",
+  is: "is_IS",
+};
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${siteConfig.url}/#person`,
+      name: siteConfig.legalName,
+      alternateName: siteConfig.name,
+      jobTitle: siteConfig.role,
+      url: siteConfig.url,
+      email: `mailto:${siteConfig.email}`,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Santo Domingo",
+        addressCountry: "DO",
+      },
+      knowsAbout: [
+        "Backend engineering",
+        "API design",
+        "Microservices",
+        "Distributed systems",
+        "Fintech systems",
+        "SaaS platforms",
+      ],
+      sameAs: siteConfig.socials
+        .filter((social) => social.href.startsWith("https://"))
+        .map((social) => social.href),
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteConfig.url}/#website`,
+      url: siteConfig.url,
+      name: siteConfig.title,
+      description: pageDescription,
+      inLanguage: locale,
+      publisher: {
+        "@id": `${siteConfig.url}/#person`,
+      },
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description: pageDescription,
+      inLanguage: locale,
+      isPartOf: {
+        "@id": `${siteConfig.url}/#website`,
+      },
+      about: {
+        "@id": `${siteConfig.url}/#person`,
+      },
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={pageDescription} />
+    <meta name="author" content={siteConfig.legalName} />
+    <meta name="keywords" content={siteConfig.keywords.join(", ")} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#08090a" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/brand-mark.svg" />
+    <link rel="canonical" href={canonical} />
+    {locales.map((item) => <link rel="alternate" hreflang={item} href={`${siteConfig.url}${localePaths[item] === "/" ? "" : localePaths[item]}`} />)}
+    <link rel="alternate" hreflang="x-default" href={siteConfig.url} />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content={`${siteConfig.name}, ${siteConfig.role}`} />
+    <meta property="og:locale" content={ogLocales[locale]} />
+    {locales.filter((item) => item !== locale).map((item) => <meta property="og:locale:alternate" content={ogLocales[item]} />)}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={imageUrl} />
+    <meta name="generator" content={Astro.generator} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <script>
+      import "@app/animations/scroll";
+    </script>
+  </body>
+</html>

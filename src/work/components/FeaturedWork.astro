@@ -1,0 +1,30 @@
+---
+import { getLocalizedProjects } from "@work/data/projects";
+import { getT, type Locale } from "@app/i18n/translations";
+import WorkCard from "./WorkCard.astro";
+
+type Props = {
+  locale?: Locale;
+};
+
+const { locale = "en" } = Astro.props;
+const t = getT(locale);
+const projects = getLocalizedProjects(locale);
+---
+
+<section id="projects" class="px-4 py-20 sm:px-6 sm:py-28" aria-labelledby="projects-title">
+  <div class="mx-auto w-full max-w-[1200px]">
+    <div class="max-w-2xl" data-animate>
+      <p class="text-xs font-[510] uppercase text-fog">{t("projects.eyebrow")}</p>
+      <h2 id="projects-title" class="mt-4 text-4xl font-normal leading-[1.13] tracking-normal text-snow sm:text-5xl">
+        {t("projects.title")}
+      </h2>
+      <p class="mt-5 text-[17px] leading-[1.6] text-fog">
+        {t("projects.subtitle")}
+      </p>
+    </div>
+    <div class="mt-10 grid gap-4">
+      {projects.map((project) => <WorkCard project={project} locale={locale} />)}
+    </div>
+  </div>
+</section>

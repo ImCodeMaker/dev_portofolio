@@ -1,0 +1,16 @@
+---
+type Props = {
+  status: string;
+};
+
+const { status } = Astro.props;
+
+const tone = status.includes("Production")
+  ? "bg-accent text-snow"
+  : "bg-snow text-snow";
+---
+
+<span class="inline-flex items-center gap-1.5 rounded-[2px] px-2 py-1 text-[11px] font-[510] leading-none">
+  <span class={`size-1.5 rounded-full ${tone.split(" ")[0]}`}></span>
+  <span class={tone.split(" ")[1]}>{status}</span>
+</span>

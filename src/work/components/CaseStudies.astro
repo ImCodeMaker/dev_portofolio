@@ -1,0 +1,62 @@
+---
+import { getLocalizedCaseStudies } from "@work/data/projects";
+import { getT, type Locale } from "@app/i18n/translations";
+
+type Props = {
+  locale?: Locale;
+};
+
+const { locale = "en" } = Astro.props;
+const t = getT(locale);
+const caseStudies = getLocalizedCaseStudies(locale);
+---
+
+<section id="case-studies" class="px-4 py-20 sm:px-6 sm:py-28" aria-labelledby="case-studies-title">
+  <div class="mx-auto w-full max-w-[1200px]">
+    <div class="grid gap-8 lg:grid-cols-[0.78fr_1fr] lg:items-end">
+      <div data-animate>
+        <p class="text-xs font-[510] uppercase text-fog">{t("cases.eyebrow")}</p>
+        <h2 id="case-studies-title" class="mt-4 max-w-xl text-4xl font-normal leading-[1.13] tracking-normal text-snow sm:text-5xl">
+          {t("cases.title")}
+        </h2>
+      </div>
+      <p class="max-w-2xl text-[17px] leading-[1.6] text-fog" data-animate>
+        {t("cases.subtitle")}
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-5">
+      {caseStudies.map((study) => (
+        <article class="rounded-xl bg-charcoal p-6 shadow-product shadow-inset-line lg:p-8" data-animate="panel">
+          <div class="grid gap-8 lg:grid-cols-[0.72fr_1fr]">
+            <div>
+              <p class="mono text-xs text-slate">{study.id} / {study.project}</p>
+              <h3 class="mt-6 text-3xl font-normal leading-[1.16] tracking-normal text-snow">{study.title}</h3>
+              <div class="mt-8 rounded-lg border border-graphite bg-onyx p-4">
+                <p class="text-xs font-[510] uppercase text-fog">{t("cases.result")}</p>
+                <p class="mt-3 text-sm leading-6 text-mist">{study.result}</p>
+              </div>
+            </div>
+
+            <div class="grid gap-3">
+              <div class="rounded-lg border border-graphite bg-obsidian p-4">
+                <p class="text-xs font-[510] uppercase text-fog">{t("cases.challenge")}</p>
+                <p class="mt-3 text-sm leading-6 text-mist">{study.challenge}</p>
+              </div>
+              <div class="rounded-lg border border-graphite bg-obsidian p-4">
+                <p class="text-xs font-[510] uppercase text-fog">{t("cases.built")}</p>
+                <p class="mt-3 text-sm leading-6 text-mist">{study.built}</p>
+              </div>
+              {study.decisions.map((decision) => (
+                <div class="rounded-lg border border-graphite bg-onyx p-4">
+                  <p class="text-xs font-[510] uppercase text-fog">{decision.label}</p>
+                  <p class="mt-3 text-sm leading-6 text-mist">{decision.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

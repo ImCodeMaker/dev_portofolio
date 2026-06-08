@@ -1,0 +1,76 @@
+---
+import { siteConfig } from "@app/config/site";
+import { getT, type Locale } from "@app/i18n/translations";
+
+type Props = {
+  locale?: Locale;
+};
+
+const { locale = "en" } = Astro.props;
+const t = getT(locale);
+---
+
+<section id="contact" class="px-4 py-20 sm:px-6 sm:py-28" aria-labelledby="contact-title">
+  <div class="mx-auto grid w-full max-w-[1200px] gap-10 rounded-xl border border-platinum/20 bg-snow p-6 text-onyx shadow-product sm:p-8 lg:grid-cols-[0.9fr_1.1fr]" data-animate="panel">
+    <div>
+      <p class="text-xs font-[510] uppercase text-slate">{t("contact.eyebrow")}</p>
+      <h2 id="contact-title" class="mt-4 max-w-2xl text-4xl font-normal leading-[1.13] tracking-normal text-onyx sm:text-5xl">
+        {t("contact.title")}
+      </h2>
+      <p class="mt-5 max-w-xl text-[17px] leading-[1.6] text-slate">
+        {t("contact.subtitle")}
+      </p>
+      <dl class="mt-10 grid gap-4">
+        <div class="border-t border-onyx/15 pt-4">
+          <dt class="mono text-xs text-slate">{t("contact.email")}</dt>
+          <dd class="mt-1 text-sm font-[510]">
+            <a class="no-underline" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+          </dd>
+        </div>
+        <div class="border-t border-onyx/15 pt-4">
+          <dt class="mono text-xs text-slate">{t("contact.linkedin")}</dt>
+          <dd class="mt-1 text-sm font-[510]">
+            <a class="no-underline" href={siteConfig.socials[1].href} target="_blank" rel="noreferrer">linkedin.com/in/joshua-encarnacion</a>
+          </dd>
+        </div>
+        <div class="border-t border-onyx/15 pt-4">
+          <dt class="mono text-xs text-slate">{t("contact.github")}</dt>
+          <dd class="mt-1 text-sm font-[510]">
+            <a class="no-underline" href={siteConfig.socials[0].href} target="_blank" rel="noreferrer">github.com/ImCodeMaker</a>
+          </dd>
+        </div>
+        <div class="border-t border-onyx/15 pt-4">
+          <dt class="mono text-xs text-slate">{t("contact.resume")}</dt>
+          <dd class="mt-1 text-sm font-[510]">
+            <a class="no-underline" href={siteConfig.socials[2].href} target="_blank" rel="noreferrer">{t("contact.downloadCv")}</a>
+          </dd>
+        </div>
+        <div class="border-t border-onyx/15 pt-4">
+          <dt class="mono text-xs text-slate">{t("contact.location")}</dt>
+          <dd class="mt-1 text-sm font-[510]">{t("contact.locationValue")}</dd>
+        </div>
+      </dl>
+    </div>
+
+    <form class="grid gap-3 rounded-lg bg-onyx p-4 text-snow shadow-inset-line" action={`mailto:${siteConfig.email}`} method="post" enctype="text/plain">
+      <label class="grid gap-2 text-xs text-fog">
+        {t("contact.name")}
+        <input class="rounded-md bg-steel px-3 py-2 text-sm text-snow outline-none shadow-md placeholder:text-slate focus:shadow-[inset_0_0_0_1px_#3B82F6]" name="name" placeholder={t("contact.namePlaceholder")} />
+      </label>
+      <label class="grid gap-2 text-xs text-fog">
+        {t("contact.email")}
+        <input class="rounded-md bg-steel px-3 py-2 text-sm text-snow outline-none shadow-md placeholder:text-slate focus:shadow-[inset_0_0_0_1px_#3B82F6]" type="email" name="email" placeholder={t("contact.emailPlaceholder")} />
+      </label>
+      <label class="grid gap-2 text-xs text-fog">
+        {t("contact.projectDescription")}
+        <textarea class="min-h-40 resize-y rounded-md bg-steel px-3 py-2 text-sm text-snow outline-none shadow-md placeholder:text-slate focus:shadow-[inset_0_0_0_1px_#3B82F6]" name="project_description" placeholder={t("contact.projectPlaceholder")}></textarea>
+      </label>
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+        <p class="mono text-xs text-slate">{t("contact.remote")}</p>
+        <button class="rounded-md bg-accent px-4 py-2 text-sm font-[510] text-snow shadow-button-stack" type="submit">
+          {t("contact.send")}
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

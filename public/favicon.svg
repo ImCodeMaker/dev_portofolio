@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Portfolio mark">
+  <rect width="64" height="64" rx="14" fill="#111111"/>
+  <path d="M18 44V20h13.5c7.3 0 11.8 3.8 11.8 10.1 0 6.2-4.5 10-11.8 10h-6.2V44H18Zm7.3-9.8H31c3.2 0 5-1.5 5-4.1 0-2.7-1.8-4.2-5-4.2h-5.7v8.3Z" fill="#f7f2e8"/>
+  <path d="M43 44 31.5 31.7h8.1L51 44h-8Z" fill="#f05a28"/>
+</svg>
