@@ -7,21 +7,21 @@ export type CapabilityData = {
 export const capabilities: CapabilityData[] = [
   {
     id: "CAP-01",
-    name: "Backend & API Design",
+    name: "Product & Application Engineering",
     detail:
-      "REST APIs, authentication systems, business logic, relational database design and optimization",
+      "Complete web applications with clean interfaces, reliable workflows, and maintainable product logic",
   },
   {
     id: "CAP-02",
-    name: "Microservices Architecture",
+    name: "Frontend & UX Implementation",
     detail:
-      "Event-driven systems with Kafka, Redis caching, Docker orchestration, distributed patterns",
+      "React, TypeScript, responsive interfaces, accessibility, animation, and polished user experience",
   },
   {
     id: "CAP-03",
-    name: "Full Stack Applications",
+    name: "APIs & Backend Systems",
     detail:
-      "React, Next.js, TypeScript front-ends connected to production-grade backends",
+      "REST APIs, authentication, business logic, relational database design, and service integration",
   },
   {
     id: "CAP-04",
@@ -47,17 +47,17 @@ type Locale = "en" | "de" | "it" | "pt" | "es" | "no" | "da" | "sv" | "is";
 
 const localizedCapabilities: Partial<Record<Locale, CapabilityData[]>> = {
   es: [
-    { id: "CAP-01", name: "Backend y diseño de APIs", detail: "APIs REST, autenticación, lógica de negocio, diseño y optimización de bases de datos relacionales" },
-    { id: "CAP-02", name: "Arquitectura de microservicios", detail: "Sistemas event-driven con Kafka, caché con Redis, Docker y patrones distribuidos" },
-    { id: "CAP-03", name: "Aplicaciones full stack", detail: "Frontends con React, Next.js y TypeScript conectados a backends de producción" },
+    { id: "CAP-01", name: "Ingeniería de producto y aplicaciones", detail: "Aplicaciones web completas con interfaces claras, flujos confiables y lógica de producto mantenible" },
+    { id: "CAP-02", name: "Frontend y experiencia de usuario", detail: "React, TypeScript, interfaces responsive, accesibilidad, animación y una experiencia pulida" },
+    { id: "CAP-03", name: "APIs y sistemas backend", detail: "APIs REST, autenticación, lógica de negocio, diseño de bases de datos e integración de servicios" },
     { id: "CAP-04", name: "DevOps y CI/CD", detail: "Pipelines con GitHub Actions, administración Linux, Docker y automatización de despliegues" },
     { id: "CAP-05", name: "Sistemas fintech", detail: "APIs de pago, idempotencia, KYC, wallets cripto y flujos con cumplimiento regulatorio" },
     { id: "CAP-06", name: "Plataformas SaaS", detail: "Arquitectura multi-tenant, entornos aislados por cliente, suscripciones e infraestructura escalable" },
   ],
   de: [
-    { id: "CAP-01", name: "Backend- & API-Design", detail: "REST-APIs, Authentifizierung, Geschäftslogik sowie Design und Optimierung relationaler Datenbanken" },
-    { id: "CAP-02", name: "Microservices-Architektur", detail: "Event-getriebene Systeme mit Kafka, Redis-Caching, Docker und verteilten Mustern" },
-    { id: "CAP-03", name: "Full-Stack-Anwendungen", detail: "React-, Next.js- und TypeScript-Frontends mit produktionsreifen Backends" },
+    { id: "CAP-01", name: "Produkt- & Anwendungsentwicklung", detail: "Komplette Webanwendungen mit klaren Interfaces, zuverlässigen Abläufen und wartbarer Produktlogik" },
+    { id: "CAP-02", name: "Frontend & UX-Umsetzung", detail: "React, TypeScript, responsive Interfaces, Barrierefreiheit, Animation und eine polierte Nutzererfahrung" },
+    { id: "CAP-03", name: "APIs & Backend-Systeme", detail: "REST-APIs, Authentifizierung, Geschäftslogik, Datenbankdesign und Service-Integration" },
     { id: "CAP-04", name: "DevOps & CI/CD", detail: "GitHub-Actions-Pipelines, Linux-Administration, Docker und Deployment-Automatisierung" },
     { id: "CAP-05", name: "Fintech-Systeme", detail: "Payment-APIs, Idempotenz, KYC, Krypto-Wallets und Compliance-orientierte Workflows" },
     { id: "CAP-06", name: "SaaS-Plattformen", detail: "Multi-Tenant-Architektur, isolierte Kundenumgebungen, Abonnements und skalierbare Infrastruktur" },

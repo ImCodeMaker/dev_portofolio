@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">Teudy Encarnacion - Full Stack Engineer</title>
-  <desc id="desc">Personal portfolio preview for backend systems, APIs, and distributed architecture.</desc>
+  <desc id="desc">Personal portfolio preview for full-stack products, APIs, and scalable architecture.</desc>
   <rect width="1200" height="630" fill="#08090a"/>
   <rect x="56" y="56" width="1088" height="518" rx="28" fill="#0f1011" stroke="#323334" stroke-width="2"/>
   <circle cx="106" cy="108" r="9" fill="#eb5757"/>
@@ -8,7 +8,7 @@
   <circle cx="162" cy="108" r="9" fill="#27a644"/>
   <text x="96" y="214" fill="#f7f8f8" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="300">Teudy Encarnacion</text>
   <text x="96" y="302" fill="#f7f8f8" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="300">Full Stack Engineer</text>
-  <text x="96" y="374" fill="#8a8f98" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="500">Backend systems / APIs / Distributed architecture</text>
+  <text x="96" y="374" fill="#8a8f98" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="500">Full-stack products / APIs / Scalable architecture</text>
   <rect x="96" y="442" width="222" height="54" rx="10" fill="#3b82f6"/>
   <text x="124" y="477" fill="#f7f8f8" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">teudy.vercel.app</text>
   <text x="760" y="478" fill="#62666d" font-family="JetBrains Mono, monospace" font-size="22">Santo Domingo -> Remote</text>

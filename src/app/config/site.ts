@@ -5,7 +5,7 @@ export const siteConfig = {
   role: "Full Stack Engineer",
   title: "Teudy Encarnación — Full Stack Engineer",
   description:
-    "Full Stack Engineer specialized in backend systems, APIs, and distributed architecture. Available for remote contracts.",
+    "Full Stack Engineer building complete web products, APIs, SaaS platforms, and scalable architecture. Available for remote contracts.",
   url: "https://teudy.vercel.app",
   image: "/og-image.svg",
   email: "teudijoshua@gmail.com",
@@ -14,7 +14,9 @@ export const siteConfig = {
     "Teudy Encarnacion",
     "Teudy Joshua Encarnacion",
     "Full Stack Engineer",
+    "Frontend Developer",
     "Backend Engineer",
+    "Product Engineer",
     "API Developer",
     "Microservices Developer",
     "Fintech Developer",

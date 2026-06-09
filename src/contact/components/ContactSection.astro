@@ -52,25 +52,50 @@ const t = getT(locale);
       </dl>
     </div>
 
-    <form class="grid gap-3 rounded-lg bg-onyx p-4 text-snow shadow-inset-line" action={`mailto:${siteConfig.email}`} method="post" enctype="text/plain">
+    <div class="grid gap-3 rounded-lg bg-onyx p-4 text-snow shadow-inset-line" data-contact-card data-contact-email={siteConfig.email} data-contact-subject={t("contact.title")}>
       <label class="grid gap-2 text-xs text-fog">
         {t("contact.name")}
-        <input class="rounded-md bg-steel px-3 py-2 text-sm text-snow outline-none shadow-md placeholder:text-slate focus:shadow-[inset_0_0_0_1px_#3B82F6]" name="name" placeholder={t("contact.namePlaceholder")} />
+        <input class="rounded-md bg-steel px-3 py-2 text-sm text-snow outline-none shadow-md placeholder:text-slate focus:shadow-[inset_0_0_0_1px_#3B82F6]" name="name" placeholder={t("contact.namePlaceholder")} autocomplete="name" data-contact-name />
       </label>
       <label class="grid gap-2 text-xs text-fog">
         {t("contact.email")}
-        <input class="rounded-md bg-steel px-3 py-2 text-sm text-snow outline-none shadow-md placeholder:text-slate focus:shadow-[inset_0_0_0_1px_#3B82F6]" type="email" name="email" placeholder={t("contact.emailPlaceholder")} />
+        <input class="rounded-md bg-steel px-3 py-2 text-sm text-snow outline-none shadow-md placeholder:text-slate focus:shadow-[inset_0_0_0_1px_#3B82F6]" type="email" name="email" placeholder={t("contact.emailPlaceholder")} autocomplete="email" inputmode="email" data-contact-reply />
       </label>
       <label class="grid gap-2 text-xs text-fog">
         {t("contact.projectDescription")}
-        <textarea class="min-h-40 resize-y rounded-md bg-steel px-3 py-2 text-sm text-snow outline-none shadow-md placeholder:text-slate focus:shadow-[inset_0_0_0_1px_#3B82F6]" name="project_description" placeholder={t("contact.projectPlaceholder")}></textarea>
+        <textarea class="min-h-40 resize-y rounded-md bg-steel px-3 py-2 text-sm text-snow outline-none shadow-md placeholder:text-slate focus:shadow-[inset_0_0_0_1px_#3B82F6]" name="project_description" placeholder={t("contact.projectPlaceholder")} data-contact-message></textarea>
       </label>
       <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
         <p class="mono text-xs text-slate">{t("contact.remote")}</p>
-        <button class="rounded-md bg-accent px-4 py-2 text-sm font-[510] text-snow shadow-button-stack" type="submit">
+        <button class="rounded-md bg-accent px-4 py-2 text-sm font-[510] text-snow shadow-button-stack" type="button" data-contact-send>
           {t("contact.send")}
         </button>
       </div>
-    </form>
+    </div>
   </div>
 </section>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-contact-card]").forEach((card) => {
+    const sendButton = card.querySelector<HTMLButtonElement>("[data-contact-send]");
+    const nameInput = card.querySelector<HTMLInputElement>("[data-contact-name]");
+    const replyInput = card.querySelector<HTMLInputElement>("[data-contact-reply]");
+    const messageInput = card.querySelector<HTMLTextAreaElement>("[data-contact-message]");
+
+    sendButton?.addEventListener("click", () => {
+      const lines = [
+        nameInput?.value ? `Name: ${nameInput.value}` : "",
+        replyInput?.value ? `Email: ${replyInput.value}` : "",
+        messageInput?.value ? `Message:\n${messageInput.value}` : "",
+      ].filter(Boolean);
+
+      const body = encodeURIComponent(lines.join("\n\n"));
+      const subject = encodeURIComponent(card.dataset.contactSubject ?? "Portfolio inquiry");
+      const email = card.dataset.contactEmail;
+
+      if (email) {
+        window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+      }
+    });
+  });
+</script>
